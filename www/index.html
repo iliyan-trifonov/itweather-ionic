@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+  <body ng-app="ITWeather">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">IT Weather</h1>
+      </ion-header-bar>
+      <ion-content ng-controller="MainCtrl">
+          <div class="list">
+              <label class="item item-input item-select">
+                  <div class="input-label">
+                      Units
+                  </div>
+                  <select ng-options="item as item.name for item in units track by item.name"
+                          ng-model="unit"
+                          ng-change="changeUnit()">
+                  </select>
+              </label>
+          </div>
+
+          <div class="card" ng-show="data.city">
+              <div class="item item-text-wrap">
+                  <div><strong>City:</strong> {{data.city}}</div>
+                  <div><strong>Temperature:</strong> <span ng-bind-html="data.temp"></span></div>
+                  <div><strong>Temp. Min.:</strong> <span ng-bind-html="data.temp_min"></span></div>
+                  <div><strong>Temp. Max:</strong> <span ng-bind-html="data.temp_max"></span></div>
+                  <div><strong>Humidity:</strong> {{data.humidity}}%</div>
+                  <div><strong>Pressure:</strong> {{data.pressure}} hPa</div>
+                  <small>Last updated: {{data.lastUpdated}} seconds ago</small>
+              </div>
+          </div>
+
+      </ion-content>
+
+        <div class="bar bar-footer bar-balanced">
+            <div class="title">Thank you for using this app!</div>
+        </div>
+
+    </ion-pane>
+  </body>
+</html>
