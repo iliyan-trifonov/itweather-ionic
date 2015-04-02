@@ -45,7 +45,7 @@
 
           <div class="card" ng-show="data.city">
               <div class="item item-text-wrap">
-                  <div><strong>City:</strong> {{data.city}}</div>
+                  <div><strong>City (or neighbourhood):</strong> {{data.city}}</div>
                   <div><strong>Temperature:</strong> <span ng-bind-html="data.temp"></span></div>
                   <div><strong>Temp. Min.:</strong> <span ng-bind-html="data.temp_min"></span></div>
                   <div><strong>Temp. Max:</strong> <span ng-bind-html="data.temp_max"></span></div>
@@ -54,6 +54,8 @@
                   <small>Last updated: {{data.lastUpdated}} seconds ago</small>
               </div>
           </div>
+
+          <div ng-if="error" ng-bind="error"></div>
 
       </ion-content>
 
