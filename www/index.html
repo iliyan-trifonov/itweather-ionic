@@ -41,9 +41,18 @@
                           ng-change="changeUnit()">
                   </select>
               </label>
+              <label class="item item-input item-select">
+                  <div class="input-label">
+                      High Accuracy
+                  </div>
+                  <select ng-options="item as item.name for item in accs track by item.name"
+                          ng-model="acc"
+                          ng-change="changeAcc()">
+                  </select>
+              </label>
           </div>
 
-          <div class="card" ng-show="data.city">
+          <div class="card" ng-if="data.city">
               <div class="item item-text-wrap">
                   <div><strong>City (or neighbourhood):</strong> {{data.city}}</div>
                   <div><strong>Temperature:</strong> <span ng-bind-html="data.temp"></span></div>
@@ -55,7 +64,14 @@
               </div>
           </div>
 
-          <div class="card" ng-if="error" ng-bind="error"></div>
+          <div class="card" ng-if="error">
+              <div class="item item-divider">
+                  Error
+              </div>
+              <div class="item item-text-wrap">
+                  {{error}}
+              </div>
+          </div>
 
       </ion-content>
 
