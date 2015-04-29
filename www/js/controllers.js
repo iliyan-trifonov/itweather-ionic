@@ -56,7 +56,7 @@
                 var unitSign, windUnit;
                 if ($scope.unit.value === 'imperial') {
                     unitSign = 'F';
-                    windUnit = 'mph';
+                    windUnit = 'ft/s';
                 } else {
                     unitSign = 'C';
                     windUnit = 'm/s';
