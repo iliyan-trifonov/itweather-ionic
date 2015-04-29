@@ -8,7 +8,16 @@ The weather data from [openweathermap.org](http://openweathermap.org "openweathe
 The application detect automatically the current location and calls the [openweathermap.org](http://openweathermap.org "openweathermap.org")'s API with the detected lat and lon + the units.
 
 First copy the www/js/config.js.dist to www/js/config.js and put your settings in it.
-Then run the application:
+
+Install required npm and bower modules:
+
+    npm install && bower install
+
+Install the required cordova plugins:
+
+    cordova plugin add com.ionic.keyboard org.apache.cordova.device org.apache.cordova.geolocation
+
+Run the application:
 
 Can be fully tested in the browser locally:
 
