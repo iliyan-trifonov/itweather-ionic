@@ -1,0 +1,6 @@
+var ITWeatherConfig = {
+    "openweathermap": {
+        "APIURL": "",
+        "APPID": ""
+    }
+};
