@@ -63,8 +63,12 @@
                 }
                 var sunrise = new Date(data.sys.sunrise * 1000);
                 var sunset = new Date(data.sys.sunset * 1000);
-                sunrise = sunrise.getHours() + ':' + sunrise.getMinutes();
-                sunset = sunset.getHours() + ':' + sunset.getMinutes();
+                var h = ('0' + sunrise.getHours()).slice(-2);
+                var m = ('0' + sunrise.getMinutes()).slice(-2);
+                sunrise = h + ':' + m + 'h';
+                h = ('0' + sunset.getHours()).slice(-2);
+                m = ('0' + sunset.getMinutes()).slice(-2);
+                sunset = h + ':' + m + 'h';
                 $scope.data = {
                     'city': data.name,
                     'condition': data.weather[0].main + ': ' + data.weather[0].description,
@@ -78,7 +82,7 @@
                 };
             }
 
-            function getUnitsSetting() {
+            function getUnitsSettings() {
                 if ($window.localStorage['unit']) {
                     return JSON.parse($window.localStorage['unit']);
                 }
@@ -120,7 +124,7 @@
                 {name: 'No', value: false}
             ];
 
-            $scope.unit = getUnitsSetting();
+            $scope.unit = getUnitsSettings();
             $scope.acc = getAcc();
 
             $scope.changeUnit = function () {
